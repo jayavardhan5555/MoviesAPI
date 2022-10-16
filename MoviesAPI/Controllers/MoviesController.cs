@@ -43,7 +43,7 @@ namespace MoviesAPI.Controllers
 
         //GET : api/movies/id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Movie>> GetMovies(int id)
+        public async Task<ActionResult<Movie>> GetMovies(Guid id)
         {
             if (_movieContext == null)
             {
@@ -59,7 +59,7 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Movie>> UpdateMovie(int id, Movie movie)
+        public async Task<ActionResult<Movie>> UpdateMovie(Guid id, Movie movie)
         {
             if (movie.Id != id)
             {
@@ -76,7 +76,7 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMovie(int id)
+        public async Task<IActionResult> DeleteMovie(Guid id)
         {
             var movie = await _movieContext.MoviesList.FindAsync(id);
 
